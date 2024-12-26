@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { FaInfo } from "react-icons/fa";
 function StudentItem(props) {
 	console.log(props.student);
 
@@ -17,7 +17,7 @@ function StudentItem(props) {
 			<td className="text-center">{email}</td>
 			<td className="text-center">
 				<Link className="btn btn-secondary me-3" to={"/detail/" + id}>
-					Detail
+					<FaInfo />
 				</Link>
 				<button onClick={() => props.showModalDelete(props.student)} className="btn btn-secondary me-3">
 					Delete
