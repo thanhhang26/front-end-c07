@@ -4,6 +4,7 @@ import StudentItem from "./StudentItem";
 import DeleteComponent from "./DeleteComponent";
 import { getAllStudent, searchByName } from "../service/studentService";
 import { getAddressStudent } from "../service/addressService";
+import { FaPlus } from "react-icons/fa";
 
 function StudentList() {
 	const [studentList, setStudentList] = useState([]);
@@ -54,7 +55,8 @@ function StudentList() {
 						Search
 					</button>
 				</div>
-				<Link className="btn btn-sm btn-secondary" id="add-link" to="/students_list/add_students">
+				<Link className="btn btn-sm btn-secondary d-flex justify-content-center" id="add-link" to="/students_list/add_students">
+					<FaPlus />
 					Add New Students
 				</Link>
 			</form>

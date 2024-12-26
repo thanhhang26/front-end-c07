@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaInfo } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+
 function StudentItem(props) {
 	console.log(props.student);
 
@@ -16,12 +20,16 @@ function StudentItem(props) {
 			<td className="text-center">{address ? address.name : "Không có địa chỉ"}</td>
 			<td className="text-center">{email}</td>
 			<td className="text-center">
-				<Link className="btn btn-secondary me-3" to={"/detail/" + id}>
-					<FaInfo />
-				</Link>
-				<button onClick={() => props.showModalDelete(props.student)} className="btn btn-secondary me-3">
-					Delete
-				</button>
+				<OverlayTrigger overlay={<Tooltip id={id}>Xem chi tiết</Tooltip>}>
+					<Link className="btn btn-secondary me-3" to={"/detail/" + id}>
+						<FaInfo />
+					</Link>
+				</OverlayTrigger>
+				<OverlayTrigger overlay={<Tooltip id={id}>Xoá học sinh</Tooltip>}>
+					<button onClick={() => props.showModalDelete(props.student)} className="btn btn-secondary me-3">
+						<FaTrash />
+					</button>
+				</OverlayTrigger>
 			</td>
 		</tr>
 	);
